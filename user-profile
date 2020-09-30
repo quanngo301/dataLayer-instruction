@@ -11,8 +11,6 @@ window.dataLayer.push({
 }); 
 </script>
 
-One of the most popular cases which dataLayers have an important role is setting up enchanced ecommerce tracking for a storefront. This specific implementation require the 
-dataLayers follow certain structures and the values in each key need to be consistent throughout the shopping funnel.
 
 In Ruukki case, at the beginning of the project, we want to analyze user groups and how they interact with the order process between ecom site and RCT site. So the dataLayer below
 should be populated when users log in to their accounts in ecom.ruukki.com, and when they land to RCT site.
