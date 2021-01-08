@@ -27,3 +27,7 @@ window.dataLayer.push({
 
 For implementing Enhanced Ecommerce tracking, it requires specific syntaxt for the objects pushed to dataLayers. That is quite a heavy setup so we save if for later when
 we get the deal with the client.
+
+Update 01/ 2021:
+Since according to our current user naming, one user could be assigned to both b2c (not login) and b2b (login) roles, we need to retain the dataLayer with corresponding values
+in every page during their visits.
