@@ -15,6 +15,10 @@ window.dataLayer.push({
 In Ruukki case, at the beginning of the project, we want to analyze user groups and how they interact with the order process between ecom site and RCT site. So the dataLayer below
 should be populated when users log in to their accounts in ecom.ruukki.com, and when they land to RCT site.
 
+We also want to indentify log in users as new/ returning when they log in to their site for the first time/ other times.
+
+
+
 
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -29,5 +33,47 @@ For implementing Enhanced Ecommerce tracking, it requires specific syntaxt for t
 we get the deal with the client.
 
 Update 01/ 2021:
+
 Since according to our current user naming, one user could be assigned to both b2c (not login) and b2b (login) roles, we need to retain the dataLayer with corresponding values
-in every page during their visits.
+in every page during their visits (whenever the DOM loads).
+
+Current setting:
+
+Pre-login :
+
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  'event': 'userHomePage',
+  'userId': 8796093087748,
+  'userType.type1': 'b2c'
+}); 
+</script>
+
+
+Post-login:
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  'event': 'userHomePage',
+  'userId': 8796256993284,
+  'userType.type1': 'b2b',
+  'userType.type2': 'salesman'
+}); 
+</script>
+
+We'll add one arrtibute to the post-login dataLayer to identify if the users are new or existing, by using user data from Backoffice.
+
+Post-login:
+<script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  'event': 'userHomePage',
+  'userId': 8796256993284,
+  'userType.type1': 'b2b',
+  'userType.type2': 'salesman'
+  'userType.type3' : 'new' // if user log in for the first time after he register an account, return 'new'. Otherwise return 'existing'
+}); 
+</script>
+
+*If the user sign in and sign out multiple times after he register a new account in the same visit, from the second log in, returing 'existing'
