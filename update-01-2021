@@ -28,7 +28,7 @@ window.dataLayer.push({
 }); 
 </script>
 
-We'll add one arrtibute to the post-login dataLayer to identify if the users are new or existing, by using user data from Backoffice.
+We'll add one arrtibute to the post-login dataLayer to identify if the users are new or existing, by cross checking user data from Backoffice.
 
 Post-login:
 <script>
