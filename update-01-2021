@@ -43,3 +43,8 @@ window.dataLayer.push({
 </script>
 
 *If the user sign in and sign out multiple times after he register a new account in the same visit, from the second log in, returing 'existing'
+
+Summary: There are two options to decide when firing the dataLayers<.
+
+1, Only when user log in - this way we dont need to fire the dataLayer when they first land on the site, and in every page -> no b2c type recorded
+2, In every page load - firing the dataLayers that record the latest user info when they load any page of the site -> b2c mean non - login nad b2b mean log-in
